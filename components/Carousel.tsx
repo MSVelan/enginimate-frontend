@@ -50,20 +50,25 @@ const Carousel: React.FC<PropType> = (props) => {
   }, [emblaApi]);
 
   return (
-    <div className="flex flex-col">
-      <h2 className="text-3xl mx-auto m-4">Featured Creations</h2>
+    <div className="flex flex-col m-4 sm:m-8">
+      <h2 className="text-xl sm:text-2xl lg:text-3xl mx-auto m-4">
+        Featured Creations
+      </h2>
       {/* create a carousal of videos below for featured creations */}
-      <section className="m-4 rounded-2xl p-4 embla">
-        <div className="embla__viewport" ref={emblaRef}>
+      <section className="m-4 rounded-2xl embla">
+        <div className="embla__viewport overflow-hidden" ref={emblaRef}>
           <div className="embla__container">
             {slideIndices.map((idx) => {
               const url = urls[idx];
               const prompt = prompts[idx];
               return (
-                <div key={idx} className="embla__slide">
+                <div
+                  key={idx}
+                  className="embla__slide min-w-0 sm:[--slide-size:50%] lg:[--slide-size:33.3%] shrink-0"
+                >
                   <iframe
                     src={url}
-                    className="embla__slide__number h-lvh w-full rounded-xl"
+                    className="embla__slide__number w-full h-full rounded-xl"
                     allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
                     allowFullScreen
                   />
@@ -74,7 +79,7 @@ const Carousel: React.FC<PropType> = (props) => {
           </div>
         </div>
         <div className="embla__controls">
-          <div className="embla__buttons">
+          <div className="embla__buttons col-span-full sm:col-span-1 grid-cols-[auto_auto]! justify-center gap-6! sm:gap-2.5! sm:justify-start">
             <PrevButton
               onClick={onPrevButtonClick}
               disabled={prevBtnDisabled}
@@ -85,7 +90,7 @@ const Carousel: React.FC<PropType> = (props) => {
             />
           </div>
 
-          <div className="embla__dots">
+          <div className="embla__dots hidden! sm:flex!">
             {scrollSnaps.map((_, index) => (
               <DotButton
                 key={index}

@@ -105,89 +105,108 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <div className="flex flex-row m-10 justify-between items-start">
-        <div className="flex flex-col gap-4">
-          <h2 className="text-2xl w-xl">
+      <div className="flex flex-col m-4 sm:m-8 justify-between items-start gap-3">
+        <div className="flex flex-col gap-2 md:flex-row md:gap-4 w-full items-start">
+          <h2 className="text-md sm:text-lg md:text-xl lg:text-2xl w-full flex-2">
             Animate mathematics, science and engineering related videos
           </h2>
-          <div className="w-xl relative mr-8">
-            <textarea
-              placeholder={"Enter your prompt here..."}
-              className="w-full h-fit rounded-lg bg-gray-300 p-2 text-wrap resize-none overflow-hidden"
-              rows={6}
-              value={input}
-              onChange={handleInputChange}
-              onKeyDown={handleKeyDown}
-            />
-            <button
-              type="button"
-              className="absolute bottom-4 right-4 rounded-full bg-[#80A1C1] p-2"
-              onClick={handleIconClick}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 640 640"
-                className="h-5 w-5"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M322.5 351.7L523.4 150.9L391 520.3L322.5 351.7zM489.4 117L288.6 317.8L120 249.3L489.4 117zM70.1 280.8L275.9 364.4L359.5 570.2C364.8 583.3 377.6 591.9 391.8 591.9C406.5 591.9 419.6 582.7 424.6 568.8L602.6 72C606.1 62.2 603.6 51.4 596.3 44C589 36.6 578.1 34.2 568.3 37.7L71.4 215.7C57.5 220.7 48.3 233.8 48.3 248.5C48.3 262.7 56.9 275.5 70 280.8z"
-                />
-              </svg>
-            </button>
+          <div className="flex-3 text-sm sm:text-base md:text-md lg:text-lg">
+            {!loading && !result && !error && (
+              <div>
+                <p>Enter a prompt to start processing your request.</p>
+                <p> Checkout the sample video below:</p>
+              </div>
+            )}
+
+            {loading && !result && !error && (
+              <div>
+                <p>Processing your request... Estimated time: 20-40 minutes.</p>
+                <p>While you wait, why not play a game?</p>
+              </div>
+            )}
+
+            {error && <p>{error}</p>}
+
+            {result && (
+              <div>
+                <p>Result received!</p>
+              </div>
+            )}
           </div>
-          <p className="text-lg w-xl">
-            This project uses Langgraph and manim-ce in the backend and takes
-            multiple steps for better quality output, hence expect a delay of
-            20-40 minutes depending on the complexity of the task (also because
-            I am using free-tier for most of the services). Currently there is
-            no support for additional manim libraries like manim-physics, etc.
-          </p>
         </div>
-        <div className="mr-10">
-          {!loading && !result && !error && (
-            <div>
-              <p>Enter a prompt to start processing your request.</p>
-              <p> Checkout the sample video below:</p>
+        <div className="mr-4 flex flex-col-reverse gap-6 md:flex-row md:gap-4 w-full">
+          <div className="flex flex-col flex-2 gap-4 justify-center">
+            <div className="w-full aspect-auto relative mr-8 h-24 md:h-30 lg:h-24 xl:h-36">
+              <textarea
+                placeholder={"Enter your prompt here..."}
+                className="w-full h-full rounded-lg bg-gray-300 p-2 text-wrap resize-none overflow-hidden"
+                value={input}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
+              />
+              <button
+                type="button"
+                className="absolute bottom-4 right-4 rounded-full bg-[#80A1C1] p-2"
+                onClick={handleIconClick}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 640"
+                  className="h-5 w-5"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M322.5 351.7L523.4 150.9L391 520.3L322.5 351.7zM489.4 117L288.6 317.8L120 249.3L489.4 117zM70.1 280.8L275.9 364.4L359.5 570.2C364.8 583.3 377.6 591.9 391.8 591.9C406.5 591.9 419.6 582.7 424.6 568.8L602.6 72C606.1 62.2 603.6 51.4 596.3 44C589 36.6 578.1 34.2 568.3 37.7L71.4 215.7C57.5 220.7 48.3 233.8 48.3 248.5C48.3 262.7 56.9 275.5 70 280.8z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <p className="hidden lg:block text-base sm:text-md w-full">
+              This project uses Langgraph and manim-ce in the backend and takes
+              multiple steps for better quality output, hence expect a delay of
+              20-40 minutes depending on the complexity of the task (also
+              because I am using free-tier for most of the services). Currently
+              there is no support for additional manim libraries like
+              manim-physics, etc.
+            </p>
+          </div>
+          <div className="flex-3 w-full aspect-video">
+            {!loading && !result && !error && (
               <iframe
                 src="https://player.cloudinary.com/embed/?cloud_name=dxpieuuce&public_id=manim-renders%2FEnginimate_bxaruq&profile=cld-default"
-                className="h-lvh w-lvw max-h-96 max-w-3xl rounded-2xl mt-2"
+                className="w-full h-full rounded-2xl mt-2"
                 allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
                 allowFullScreen
               />
-            </div>
-          )}
-
-          {loading && !result && !error && (
-            <div>
-              <p>Processing your request... Estimated time: 20-40 minutes.</p>
-              <p>While you wait, why not play a game?</p>
+            )}
+            {loading && !result && !error && (
               <iframe
                 allowFullScreen
-                className="h-lvh w-lvw max-h-96 max-w-3xl rounded-2xl mt-2"
+                className="w-full h-full rounded-2xl mt-2"
                 src="/games/drivemad.html"
               ></iframe>
-            </div>
-          )}
-
-          {error && <p>{error}</p>}
-
-          {result && (
-            <div>
-              <p>Result received!</p>
+            )}
+            {result && (
               <iframe
                 src={result}
-                className="h-lvh w-lvw max-h-96 max-w-3xl rounded-2xl mt-2"
+                className="w-full h-full rounded-2xl mt-2"
                 allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
                 allowFullScreen
               />
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
+      <p className="m-8 hidden md:block lg:hidden md:text-md w-fit">
+        This project uses Langgraph and manim-ce in the backend and takes
+        multiple steps for better quality output, hence expect a delay of 20-40
+        minutes depending on the complexity of the task (also because I am using
+        free-tier for most of the services). Currently there is no support for
+        additional manim libraries like manim-physics, etc.
+      </p>
       <Carousel slides={SLIDES} options={OPTIONS} />
       <Footer />
     </div>

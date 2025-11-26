@@ -1,10 +1,12 @@
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#3e5879] text-gray-200 py-6">
-      <div className="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="text-sm">© {new Date().getFullYear()} Enginimate</div>
+    <footer className="w-full bg-[#3e5879] text-gray-200 py-4">
+      <div className="max-w-5xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="text-sm">
+          &copy; {new Date().getFullYear()} Enginimate
+        </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <a
             href="mailto:muthiahsvn@gmail.com"
             aria-label="Email"
