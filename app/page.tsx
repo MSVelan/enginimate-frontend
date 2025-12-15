@@ -179,7 +179,7 @@ const Home = () => {
           <div className="flex-3 w-full aspect-video">
             {!loading && !result && !error && (
               <iframe
-                src="https://res.cloudinary.com/dxpieuuce/video/upload/v1764694725/manim-renders/Enginimate_udlqte.mp4"
+                src="https://player.cloudinary.com/embed/?cloud_name=dxpieuuce&public_id=manim-renders%2FEnginimate_udlqte&profile=cld-default"
                 className="w-full h-full rounded-2xl mt-2"
                 allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
                 allowFullScreen
