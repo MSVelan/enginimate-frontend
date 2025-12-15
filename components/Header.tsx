@@ -78,7 +78,7 @@ const Header = () => {
           sm:rounded-none`}
         >
           <Link
-            href={"https://msvelan.netlify.app/p/design-document-enginimate"}
+            href={"https://enginimate-sdd.pages.dev"}
             className="flex-1 bg-gray-700 p-2 sm:rounded-xl flex items-center gap-2 text-center whitespace-nowrap"
             target="_blank"
             rel="noopener noreferrer"

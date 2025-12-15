@@ -9,7 +9,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const OPTIONS: EmblaOptionsType = { slidesToScroll: "auto" };
-const SLIDE_COUNT = 5;
+const SLIDE_COUNT = 6;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 const backend_url =
   process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:8000";
@@ -114,7 +114,10 @@ const Home = () => {
             {!loading && !result && !error && (
               <div>
                 <p>Enter a prompt to start processing your request.</p>
-                <p> Checkout the sample video below:</p>
+                <p>
+                  Checkout the sample video for the prompt- Explain various set
+                  operations.
+                </p>
               </div>
             )}
 
@@ -176,7 +179,7 @@ const Home = () => {
           <div className="flex-3 w-full aspect-video">
             {!loading && !result && !error && (
               <iframe
-                src="https://player.cloudinary.com/embed/?cloud_name=dxpieuuce&public_id=manim-renders%2FEnginimate_bxaruq&profile=cld-default"
+                src="https://res.cloudinary.com/dxpieuuce/video/upload/v1764694725/manim-renders/Enginimate_udlqte.mp4"
                 className="w-full h-full rounded-2xl mt-2"
                 allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
                 allowFullScreen

@@ -20,6 +20,7 @@ const Carousel: React.FC<PropType> = (props) => {
     "https://player.cloudinary.com/embed/?cloud_name=dxpieuuce&public_id=manim-renders%2FEnginimate_bxaruq&profile=cld-default",
     "https://player.cloudinary.com/embed/?cloud_name=dxpieuuce&public_id=manim-renders%2FEnginimate_d6hghv&profile=cld-default",
     "https://player.cloudinary.com/embed/?cloud_name=dxpieuuce&public_id=manim-renders%2FEnginimate_g5knq8&profile=cld-default",
+    "https://player.cloudinary.com/embed/?cloud_name=dxpieuuce&public_id=manim-renders%2FEnginimate_udlqte&profile=cld-default",
   ];
   const prompts = [
     "Visualise the factorisation of a given integer as a branching tree that grows in real-time.",
@@ -27,6 +28,7 @@ const Carousel: React.FC<PropType> = (props) => {
     "Plot f(x)=x^2 function. Animate a dot moving along the graph and display the current x value and resulting f(x) values when dot moves along the x-axis.",
     "Display a piece of text and change its color over time",
     "Create an animation of Mandelbrot set fractal",
+    "Explain various set operations",
   ];
 
   const { slides, options } = props;
